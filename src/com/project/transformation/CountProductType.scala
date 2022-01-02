@@ -8,7 +8,7 @@ class CountProductType extends UtilityLoader {
 
   def queryCreator(): Unit ={
     //Extraction of Product Types under the Product line Golf Equipment
-    val productType = sparkSession.sql("SELECT `Product type` FROM SALES_TABLE WHERE `Product line`='Golf Equipment'")
+    val productType = sparkSession.sql("SELECT ProductType FROM SALES_TABLE WHERE ProductLine='Golf Equipment'")
 
     countProductTypes(productType)
   }
