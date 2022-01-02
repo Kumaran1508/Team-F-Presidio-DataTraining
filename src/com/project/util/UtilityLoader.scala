@@ -1,9 +1,10 @@
 package com.project.util
 import org.apache.spark.sql.SparkSession
+import scala.io.Source
 trait UtilityLoader {
 
     //Loading winutils
-    System.setProperty("hadoop.home.dir", "D:\\Downloads\\Presidio Data Training\\Winutils")
+    System.setProperty("hadoop.home.dir", "D:\\winutils\\")
 
     //Creation of Spark Session
     val sparkSession = SparkSession.builder()
@@ -12,11 +13,28 @@ trait UtilityLoader {
       .getOrCreate()
 
     //Reading CSV
-    val csvDF = sparkSession.read
-    .option("header", "true")
-    .csv("D:\\Downloads\\sales.csv")
-
+    import sparkSession.implicits._
+    val csvRead=for {
+        line <- Source.fromFile("sales.csv").getLines().drop(1).toVector
+        values = line.split(",")
+    } yield Salesdata(values(0), values(1), values(2), values(3), values(4),values(5),values(6),values(7),values(8),values(9),values(10),values(11),values(12),values(13))
+    val csvDF = csvRead.toDF()
     //Creation of Table
     csvDF.createOrReplaceTempView("SALES_TABLE")
-
 }
+case class Salesdata(
+                      Year: String,
+                      ProductLine: String,
+                      ProductType: String,
+                      Product: String,
+                      OrderMethodType: String,
+                      RetailerCountry:String,
+                      Revenue:String,
+                      PlannedRevenue:String,
+                      ProductCost:String,
+                      Quantity:String,
+                      UnitCost:String,
+                      UnitPrice:String,
+                      GrossProfit:String,
+                      UnitSalePrice:String
+                    )
