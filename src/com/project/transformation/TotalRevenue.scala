@@ -14,7 +14,7 @@ class TotalRevenue extends UtilityLoader {
 
 
     //Extraction of Revenue of Retailer France
-    val totalRevenue = sparkSession.sql("SELECT `Revenue` FROM SALES_TABLE WHERE `Retailer country`='France'")
+    val totalRevenue = sparkSession.sql("SELECT Revenue FROM SALES_TABLE WHERE `RetailerCountry`='France'")
 
     calculateRevenue(totalRevenue)
   }
