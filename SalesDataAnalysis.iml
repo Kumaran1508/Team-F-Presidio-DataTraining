@@ -5,21 +5,21 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="1.8 (2)" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="scala-sdk-2.12.10" level="application" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../spark-3.0.3-bin-hadoop2.7/jars" />
+          <root url="file://$MODULE_DIR$/../../../../Apps/spark-3.0.3-bin-hadoop2.7/jars" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../spark-3.0.3-bin-hadoop2.7/jars" />
+          <root url="file://$MODULE_DIR$/../../../../Apps/spark-3.0.3-bin-hadoop2.7/jars" />
         </SOURCES>
-        <jarDirectory url="file://$MODULE_DIR$/../spark-3.0.3-bin-hadoop2.7/jars" recursive="false" />
-        <jarDirectory url="file://$MODULE_DIR$/../spark-3.0.3-bin-hadoop2.7/jars" recursive="false" type="SOURCES" />
+        <jarDirectory url="file://$MODULE_DIR$/../../../../Apps/spark-3.0.3-bin-hadoop2.7/jars" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../../../../Apps/spark-3.0.3-bin-hadoop2.7/jars" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="scala-sdk-2.12.10" level="project" />
   </component>
 </module>

@@ -30,16 +30,16 @@ class CountProductType extends UtilityLoader {
     val path = "D:\\data\\Product-Types"
 
     //Writing product types to parquet file
-    productTypeDF.write.parquet(path)
+//    productTypeDF.write.parquet(path)
 
     //Reading product types from the parquet file
-    val readProductTypes = sparkSession.read.parquet(path)
-    println("Product Types for the Product Line Golf Equipment")
-    readProductTypes.show()
-
-    //Counting number of product types
-    val noOfProductTypes = readProductTypes.count()
-    println("No.of Product Types for the Product Line Golf Equipment ==>"+noOfProductTypes)
+//    val readProductTypes = sparkSession.read.parquet(path)
+//    println("Product Types for the Product Line Golf Equipment")
+//    readProductTypes.show()
+//
+//    //Counting number of product types
+//    val noOfProductTypes = readProductTypes.count()
+//    println("No.of Product Types for the Product Line Golf Equipment ==>"+noOfProductTypes)
 
   }
 }
