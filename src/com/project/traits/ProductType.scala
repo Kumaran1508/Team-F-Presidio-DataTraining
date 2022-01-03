@@ -1,6 +1,6 @@
 package com.project.traits
 
-import com.project.enumloader.ProductLineEnum.ProductLineEnum
+import com.project.enumloader.ProductLineEnum
 import org.apache.spark.sql
 
 trait ProductType {
