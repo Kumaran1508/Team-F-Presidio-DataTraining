@@ -1,19 +1,20 @@
 package com.project.transformation
+import com.project.enumloader.ProductLineEnum
+import com.project.traits.ProductType
 import com.project.util.UtilityLoader
 import org.apache.spark.sql
 import org.apache.spark.sql.Row
 import org.apache.spark.sql.types.{StringType, StructField, StructType}
 
-class CountProductType extends UtilityLoader {
-
-  def queryCreator(): Unit ={
+class CountProductType extends UtilityLoader with ProductType {
+  override def queryCreator(ProductLine: ProductLineEnum.Value): Unit ={
     //Extraction of Product Types under the Product line Golf Equipment
-    val productType = sparkSession.sql("SELECT ProductType FROM SALES_TABLE WHERE ProductLine='Golf Equipment'")
+    val productType = sparkSession.sql("SELECT ProductType FROM SALES_TABLE WHERE ProductLine= '" + ProductLine + "'")
 
     countProductTypes(productType)
   }
 
-  def countProductTypes(productType:sql.DataFrame): Unit ={
+  override def countProductTypes(productType:sql.DataFrame): Unit ={
 
     //Obtaining unique product types
     val productTypeRDD = productType.rdd.map(eachWord => (eachWord,1))
@@ -33,13 +34,13 @@ class CountProductType extends UtilityLoader {
     productTypeDF.write.parquet(path)
 
     //Reading product types from the parquet file
-   val readProductTypes = sparkSession.read.parquet(path)
-   println("Product Types for the Product Line Golf Equipment")
-   readProductTypes.show()
+    val readProductTypes = sparkSession.read.parquet(path)
+    println("Product Types for the Product Line Golf Equipment")
+    readProductTypes.show()
 
     //Counting number of product types
-   val noOfProductTypes = readProductTypes.count()
-   println("No.of Product Types for the Product Line Golf Equipment ==>"+noOfProductTypes)
+    val noOfProductTypes = readProductTypes.count()
+    println("No.of Product Types for the Product Line Golf Equipment ==>"+noOfProductTypes)
 
   }
 }
