@@ -2,8 +2,8 @@ package com.project.enumloader
 
 
 
-object Revenue extends Enumeration{
-  type Revenue = Value
+object RevenueEnum extends Enumeration{
+  type RevenueEnum = Value
   val retailerCountry = Value("France")
 
    
