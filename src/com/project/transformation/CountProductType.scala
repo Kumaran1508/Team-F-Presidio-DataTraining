@@ -28,7 +28,7 @@ class CountProductType extends UtilityLoader with ProductType {
     val productTypeDF = sparkSession.createDataFrame(productTypeRow,schema)
 
     //path
-    val path = "D:\\data\\Product-Types"
+    val path = "/home/priya/Product-Types"
 
     //Writing product types to parquet file
     productTypeDF.write.parquet(path)
