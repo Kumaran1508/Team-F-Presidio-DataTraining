@@ -1,6 +1,9 @@
 package com.project.util
 import org.apache.spark.sql.SparkSession
 import scala.io.Source
+/**
+ * UtilityLoader is effectuated by ProductTypeCounter and TotalRevenueCalculator to obtain the spark session and csv
+ */
 class UtilityLoader {
 
     //Creation of Spark Session
